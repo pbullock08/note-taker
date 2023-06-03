@@ -22,10 +22,21 @@ notesRouter.post('/', (req, res) => {
             id: uuid(),
         };
 
+        console.log(req.body);
+
+
         readAndAppend(newNote, './db/db.json');
         res.json('Note added successfully!')
     } else {
-        res.errored('Error in adding note.')
+        res.error('Error in adding note.')
+    }
+});
+
+notesRouter.delete('/:id', (req, res) => {
+    for (let i = 0; i < data.length; i++) {
+        if (id === req.params.id) {
+            return res.json(data[i]);
+        }
     }
 });
 
