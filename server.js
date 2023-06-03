@@ -1,18 +1,21 @@
 // importing necessary files to initialize app and port
 const express = require('express');
 const path = require('path');
-const noteData = require('./db/db.json');
+const routes = require('./routes');
 
 // initializing app for use
 const app = express();
 
 //create port number
-const PORT = 3388;
+const PORT = 8888;
 
 // middleware 
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// include routes
+app.use(routes);
 
 //Read index.html
 // GET /
@@ -24,16 +27,6 @@ app.get('/', (req, res) => {
 // GET /notes
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/notes.html'))
-});
-
-// GET /api/notes
-app.get('/api/notes', (req, res) => {
-    res.json(noteData);
-});
-
-// POST api/notes
-app.post('/api/notes', (req, res) => {
-    console.log(req.body)
 });
 
 // listening for requests
