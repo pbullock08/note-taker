@@ -20,7 +20,7 @@ app.use(routes);
 //Read index.html
 // GET /
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 
 // Wildcard route to direct users to homepage
@@ -31,7 +31,7 @@ app.get('*', (req, res) =>
 // Read notes.html
 // GET /notes
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/notes.html'))
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
 // listening for requests
