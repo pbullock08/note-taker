@@ -7,7 +7,7 @@ const routes = require('./routes');
 const app = express();
 
 //create port number
-const PORT = 8888;
+const PORT = process.env.PORT || 8444;
 
 // middleware 
 app.use(express.static('public'));
@@ -22,6 +22,11 @@ app.use(routes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'))
 });
+
+// Wildcard route to direct users to homepage
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+);
 
 // Read notes.html
 // GET /notes
