@@ -22,4 +22,5 @@
 This application is licensed under the [MIT license.](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
 ## Deployed Application
-[Deployed Application]()
+[Deployed Application](https://write-save-notes.herokuapp.com/)
+![image](./public/assets/images/deployed-app.gif)
